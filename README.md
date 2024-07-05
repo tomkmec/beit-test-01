@@ -4,6 +4,7 @@ One of the features of our mobile app is real-time view over consumptions in you
 
 This is rough design of the feature, with detailed view of consumption of single meter over the year. 
 User can select different time frames: screenshot shows a year divided into months, other options are month divided into days and day divided into hours.
+
 ![Bytove Konto](screenshot.png)
 
 ## Level 1
