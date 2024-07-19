@@ -9,7 +9,7 @@ User can select different time frames: screenshot shows a year divided into mont
 
 ## Level 1
 
-File [data-full.json](data-full.json) contains hourly **measurement** data of such a meter over the course of a year.
+File [data-full.json](data-full.json) (or [data-full.csv](data-full.csv)) contains hourly **measurement** data of such a meter over the course of a year.
 
 Your task is to implement Java method `getYearChartData` with signature as in following snippet, and design structure of `YearChartData` class:
 
@@ -20,7 +20,7 @@ public YearChartData getYearChartData(int year);
 ```
 
 The implementation needs to
-* read data from provided `data-full.json` file
+* read data from provided `data-full.json` or `data-full.csv` file
 * find and return data for the chart 
   * measured values at the start of each month, including the final value which is start of next year (13 values : 1.1. 00:00 , 1.2. 00:00 , ... , 1.1.2024 00:00)
   * consumption for each month as difference between measurements at the end and start of that month (12 values)
@@ -28,7 +28,7 @@ The implementation needs to
 
 ## Level 2
 
-Same as level 1, but use [data-scarse.json](data-scarse.json) as data source. This file does not contain all data points. Where the data is missing, find a value using linear interpolation from nearest datapoints before and after desired time stamp.
+Same as level 1, but use [data-scarse.json](data-scarse.json) (or [data-scarse.csv](data-scarse.csv)) as data source. This file does not contain all data points. Where the data is missing, find a value using linear interpolation from nearest datapoints before and after desired time stamp.
 
 
 ## Level 3
@@ -49,4 +49,5 @@ enum TimeUnit {
 
 `periodFrom` and `periodTo` are the border times of selected time range: e.g. `2023-01-02T00:00+01:00` - `2023-01-03T00:00+01:00` for the day of 2. 1. 2023; or `2023-02-01T00:00+01:00` - `2023-03-01T00:00+01:00` for the month of February 2023.
 `granurality` is how the period should be divided. For example, with `periodFrom`-`periodTo` defining a day's range, and `granurality == HOUR`, the result should return 25 hourly measurements and 24 hourly consumptions. Using the same granularity for the whole month of February would yield 28*24 hourly consumption values.
+
 
